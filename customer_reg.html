@@ -1,0 +1,54 @@
+{% load static %}
+{% include 'header.html' %}
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/vote2.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+            <h1 class="mb-0 bread">Customer Register</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+<form method ="POST" class="post-form" action="/customer_reg/">
+    {% csrf_token %}
+		<div class="container h-100">
+							<h3 class="fs-4 card-title fw-bold mb-4">Register Here</h3>
+								<div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text-muted" for="email">Email</label>
+									</div>
+									<input id="email" type="email"  name="email" required>
+								</div>
+								<div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text-muted" for="password">Password</label>
+									</div>
+									<input id="password" type="password"  name="password" required>
+								</div>
+                                <div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text" for="mobile">Mobile</label>
+									</div>
+									<input id="mobile" type="number"  name="mobile" required>
+								</div>
+                                <div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text" for="city">City</label>
+									</div>
+                                    <select name="city">
+                                        <option value="Hyd">Hyd</option>
+                                        <option value="Pune">Pune</option>
+                                        <option value="Mumbai">Mumbai</option>
+                                    </select>
+								</div>
+
+									<button type="submit" class="btn btn-primary ms-auto">Register</button><br>
+			            You are allready exist? <a href="/customer_login/">Login</a>
+
+								</div>
+</form>
+{{ msg }}
+{% include 'footer.html' %}

@@ -1,0 +1,86 @@
+{% load static %}
+{% include 'customer_header.html' %}
+
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/vote3.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+            <h1 class="mb-0 bread">My Nomination</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+<table align="center" border="2" cellpadding="10" cellspacing="0" width="80%">
+
+  <thead>
+     <tr>
+         <th>Name</th>
+         <th>Gender</th>
+         <th>Age</th>
+         <th>Qualification</th>
+         <th>About</th>
+         <th>Image</th>
+         <th>Idproof</th>
+         <th>Address</th>
+         <th>Mobile</th>
+         <th>Email</th>
+         <th>ElectionId</th>
+         <th>Status</th>
+         <th>Edit</th>
+         <th>Delete</th>
+
+
+
+
+     </tr>
+  </thead>
+    <tbody>
+        {% for nomination in nomination  %}
+        <tr>
+           <td>{{nomination.name}}</td>
+           <td>{{nomination.gender}}</td>
+            <td>{{nomination.age}}</td>
+            <td>{{nomination.qualification}}</td>
+           <td>{{nomination.about}}</td>
+            <td>
+                <img src="{{nomination.image.url}}" height="100px" width="100px" alt=""></td>
+           <td><img src="{{nomination.idproof.url}}" height="100px" width="100px" alt=""></td>
+           <td>{{nomination.address}}</td>
+           <td>{{nomination.mobile}}</td>
+           <td>{{nomination.email.email}}</td>
+           <td>{{nomination.election.id}}</td>
+            <td>{{nomination.status}}</td>
+            <td>
+                {% if nomination.status == "pending" %}
+                    <a href="/customer_edit_nomination/{{nomination.id}}">Edit</a>
+               {% elif nomination.status == "Rejected" %}
+                    <a href="/customer_edit_nomination/{{nomination.id}}">Edit</a>
+               {% else %}
+                   {{nomination.status}}
+                {% endif %}
+            </td>
+
+            <td>
+                {% if nomination.status == "pending" %}
+                    <a href="/my_nomination_delete/{{nomination.id}}" onclick="return confirm ('are you sure want delete');">Delete</a>
+               {% elif nomination.status == "Rejected" %}
+                    <a href="/my_nomination_delete/{{nomination.id}}" onclick="return confirm ('are you sure want delete');">Delete</a>
+               {% else %}
+                   {{nomination.status}}
+                {% endif %}
+            </td>
+
+
+
+
+
+
+       </tr>
+        {% endfor %}
+    </tbody>
+</table><br>
+<br>
+{% include 'footer.html' %}

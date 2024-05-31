@@ -1,0 +1,62 @@
+{% load static %}
+{% include 'admin_header.html' %}
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/vote2.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+            <h1 class="mb-0 bread">View Results</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+<h3>Table Analysis</h3>
+<br>
+<table align="center" border="2" cellpadding="10" cellspacing="0" width="80%">
+  <thead>
+     <tr>
+         <th>Name</th>
+         <th>Votes</th>
+
+     </tr>
+  </thead>
+    <tbody>
+        {% for result in results  %}
+        <tr>
+           <td>{{result.name}}</td>
+           <td>{{result.total}}</td>
+
+       </tr>
+        {% endfor %}
+    </tbody>
+</table><br>
+<div style="margin:50px;">
+<img src="data:image/png;base64,{{ graph }}" alt="Results" />
+</div>
+<br>
+<table align="center" border="2" cellpadding="10" cellspacing="0" width="80%">
+  <thead>
+     <tr>
+         <th>Id</th>
+         <th>Election-Id</th>
+         <th>Customer-Email</th>
+         <th>Name</th>
+     </tr>
+  </thead>
+    <tbody>
+        {% for view_nomination in view_nomination  %}
+        <tr>
+           <td>{{view_nomination.id}}</td>
+           <td>{{view_nomination.election.id}}</td>
+            <td>{{view_nomination.customer.email}}</td>
+            <td>{{view_nomination.name}}</td>
+       </tr>
+        {% endfor %}
+    </tbody>
+</table><br>
+<br>
+<br>
+
+{% include 'footer.html' %}

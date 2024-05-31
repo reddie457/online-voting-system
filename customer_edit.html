@@ -1,0 +1,47 @@
+{% load static %}
+{% include 'customer_header.html' %}
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/vote6.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+            <h1 class="mb-0 bread">Customer Edit</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+<center>
+<form method ="POST" class="post-form" action="{% url 'customer_update' %}">
+    {% csrf_token %}
+		<div class="container h-100">
+							<h1 class="fs-4 card-title fw-bold mb-4">Update Here</h1>
+                                <div class="mb-2 w-100">
+									<label class="col-sm-2 col-form-label" for="email">Email</label>
+									<input id="email" type="text"  name="email" value="{{customer.email}}" readonly autofocus>
+								</div>
+								<div class="mb-2 w-100">
+									<input id="password" type="hidden"  name="password" value="{{customer.password}}" required autofocus>
+								</div>
+								<div class="mb-2 w-100">
+									<label class="col-sm-2 col-form-label" for="mobile">Mobile</label>
+									<input id="mobile" type="number"  name="mobile" value="{{customer.mobile}}" required autofocus>
+								</div>
+								<div class="mb-2 w-100">
+										<label class="col-sm-2 col-form-label" >City</label>
+                                    <select value="{{customer.city}}" name="city">
+                                        <option value="Hyd">Hyd</option>
+                                        <option value="Pune">Pune</option>
+                                        <option value="Mumbai">Mumbai</option>
+                                    </select>
+								</div>
+        </div>                         <br>
+
+			<button type="submit" class="btn btn-primary ms-auto">submit</button></form></center>
+<br>
+<br>
+<br>
+<br>
+
+{% include 'footer.html' %}

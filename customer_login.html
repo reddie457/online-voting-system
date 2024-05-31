@@ -1,0 +1,32 @@
+{% load static %}
+{% include 'header.html' %}
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/vote1.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+            <h1 class="mb-0 bread">Customer Login</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+<form method ="POST" class="post-form" action="/customer_login/">
+{% csrf_token %}
+		<div class="container h-100"><br>
+                 <h3 class="fs-4 card-title fw-bold mb-4">Login Here</h3>
+            <div class="mb-2 w-100">
+                <label class="col-sm-2 col-form-label" for="email">Email</label>
+                <input id="email" type="email"  name="email"  required>
+            </div>
+            <div class="mb-2 w-100">
+                <label class="col-sm-2 col-form-label" for="Password">Password</label>
+                <input id="Password" type="Password"  name="password"  required>
+            </div>
+            <button type="submit" class="btn btn-primary ms-auto">Login</button><br>
+            U are not exist? <a href="/regpage/">Register</a>
+        </div>
+</form>
+{{msg}}
+{% include 'footer.html' %}

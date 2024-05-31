@@ -1,0 +1,41 @@
+{% load static %}
+{% include 'customer_header.html' %}
+
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/vote5.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+            <h1 class="mb-0 bread">Customer Display</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+<table align="center" border="2" cellpadding="10" cellspacing="0" width="80%">
+
+  <thead>
+     <tr>
+         <th>Email</th>
+         <th>Mobile</th>
+         <th>City</th>
+         <th>Edit</th>
+         <th>Delete</th>
+     </tr>
+  </thead>
+    <tbody>
+        <tr>
+           <td>{{customer.email}}</td>
+           <td>{{customer.mobile}}</td>
+           <td>{{customer.city}}</td>
+           <td><a href="/customer_edit/{{customer.email}}">Edit</a></td>
+           <td><a href="/customer_delete/{{customer.email}}"  onclick="return confirm ('are you sure want delete');">Delete</a></td>
+       </tr>
+    </tbody>
+</table><br>
+<br>
+<br>
+<br>
+
+{% include 'footer.html' %}

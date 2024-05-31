@@ -1,0 +1,54 @@
+{% load static %}
+{% include 'admin_header.html' %}
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/vote5.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+            <h1 class="mb-0 bread">Add Election</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+<br>
+<form method ="POST" class="post-form" action="/add_election/">
+    {% csrf_token %}
+		<div class="container h-100">
+							<h1 class="fs-4 card-title fw-bold mb-4">Add Election Here</h1>
+                                 <div class="mb-2 w-100">
+									<label class="col-sm-2 col-form-label" for="title">Title</label>
+									<input id="title" type="text"  name="title"  required>
+								</div>
+
+            <div class="mb-2 w-100">
+									<label class="col-sm-2 col-form-label" for="description">Description</label>
+									<input id="description" type="text"  name="description"  required>
+								</div>
+
+            <div class="mb-2 w-100">
+									<label class="col-sm-2 col-form-label" for="termsandcondition">TermsAndCondition</label>
+									<input id="termsandcondition" type="text"  name="termsandcondition"  required>
+								</div>
+
+            <div class="mb-2 w-100">
+									<label class="col-sm-2 col-form-label" for="electiondate">Electiondate</label>
+									<input id="electiondate" type="date"  name="electiondate"  required>
+								</div>
+
+            <div class="mb-2 w-100">
+									<label class="col-sm-2 col-form-label" for="resultdate">Resultdate</label>
+									<input id="resultdate" type="date"  name="resultdate"  required>
+								</div>
+
+
+                                <button type="submit" class="btn btn-primary ms-auto">Submit</button><br>
+
+        </div>
+</form>
+{{msg}}
+<br>
+
+{% include 'footer.html' %}
+

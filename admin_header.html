@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+  <head>
+    <title>Online Voting System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+
+  	<div class="wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 d-flex align-items-center">
+						<p class="mb-0 phone pl-md-2">
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="{% url 'unknownadmin' %}">Online Voting System</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="{% url 'admin_change' %}" class="nav-link">Change Password</a></li>
+	          <li class="nav-item"><a href="{% url 'add_category' %}" class="nav-link">Add
+				  Category</a></li>
+	          <li class="nav-item"><a href="{% url 'manage_category' %}" class="nav-link">Manage
+				  Category</a></li>
+				<li class="nav-item"><a href="{% url 'add_survey' %}" class="nav-link">Add
+					Survey</a></li>
+				<li class="nav-item"><a href="{% url 'add_election' %}" class="nav-link">Add
+					Election</a></li>
+				<li class="nav-item"><a href="{% url 'view_election' %}" class="nav-link">View
+					Election</a></li>
+				<li class="nav-item"><a href="{% url 'view_survey' %}" class="nav-link">View
+					Survey</a></li>
+				<li class="nav-item"><a href="{% url 'view_feedback' %}" class="nav-link">View Feedback</a></li>
+				<li class="nav-item"><a href="{% url 'admin_logout' %}" class="nav-link">Logout</a></li>
+				<li class="nav-item"><a href="#" class="nav-link"></a></li>
+
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+  </body>
+</html>

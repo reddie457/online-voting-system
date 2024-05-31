@@ -1,0 +1,74 @@
+{% load static %}
+{% include 'customer_header.html' %}
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/vote2.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+            <h1 class="mb-0 bread">View Election</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+
+<table align="center" border="2" cellpadding="10" cellspacing="0" width="80%">
+  <thead>
+     <tr>
+         <th>Title</th>
+         <th>Description</th>
+         <th>TermsAndCondition</th>
+         <th>CreatedateDate</th>
+         <th>Electiondate</th>
+         <th>Resultdate</th>
+         <th>Nomination</th>
+         <th>View Nomination</th>
+         <th>View Results</th>
+
+
+
+
+     </tr>
+  </thead>
+    <tbody>
+        {% for election in elections  %}
+        <tr>
+           <td>{{election.title}}</td>
+           <td>{{election.description}}</td>
+            <td>{{election.termsandcondition}}</td>
+           <td>{{election.createdate}}</td>
+            <td>{{election.electiondate}}</td>
+           <td>{{election.resultdate}}</td>
+            <td><a href="/add_nomination/{{election.id}}">Nomination</a></td>
+           <td>
+               {% if election.electiondate|date:"M.d,Y" == today|date:"M.d,Y" %}
+                    <a href="/view_nomination/{{election.id}}">View Nomination</a></td>
+               {% elif election.electiondate|date:"M.d,Y" < today|date:"M.d,Y" %}
+                Election Completed on {{election.electiondate|date:"M.d,Y"}}
+               {% else %}
+                The Nominations link will be available on {{election.electiondate|date:"M.d,Y"}}
+               {% endif %}
+            </td>
+            <td>
+                {% if election.resultdate|date:"M.d,Y" == today|date:"M.d,Y" %}
+                    <a href="/customer_election_view_results/{{election.id}}">View_Results</a></td>
+               {% else %}
+                The Result link will be available on {{election.resultdate|date:"M.d,Y"}}
+               {% endif %}
+            </td>
+
+
+
+
+       </tr>
+        {% endfor %}
+    </tbody>
+</table><br>
+<br>
+<br>
+<br>
+
+{% include 'footer.html' %}
+
+

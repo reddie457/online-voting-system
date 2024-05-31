@@ -1,0 +1,62 @@
+{% load static %}
+{% include 'customer_header.html' %}
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/vote5.jpg' %}');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+            <h1 class="mb-0 bread">View Options</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br>
+<!--<table align="center" border="2" cellpadding="10" cellspacing="0" width="80%">
+
+  <thead>
+     <tr>
+         <th>Id</th>
+         <th>title</th>
+     </tr>
+  </thead>
+    <tbody>
+        <tr>
+           <td>{{add.surveys.id}}</td>
+           <td>{{add.title}}</td>
+        </tr>
+    </tbody>
+</table><br>
+<br>-->
+
+<center>
+    <form method ="POST" class="post-form" action="">
+    {% csrf_token %}
+		<div class="container h-100">
+                                    <div class="mb-3">
+									<label class="mb-2 text-muted" for="id">Survey_Id</label>
+									<input id="id" type="text"  name="surveys" value="{{surveys}}" required readonly>
+								</div>
+                                 <div class="mb-3">
+									<label class="mb-2 text-muted" for="email">Customer_email</label>
+									<input id="email" type="text"  name="customer" value="{{customer}}" required readonly>
+								</div>
+                                <div class="radio">
+                                    <label class="mb-2 text-muted" for="id">Select Your Option:</label>
+                                     {% for add in add %}
+                                     <input type="radio" name="title" value="{{add.title}}" >
+                                     {{add.title}}
+                                     {% endfor %}
+                                </div>
+
+								</div>
+
+
+
+    <button type="submit" class="btn btn-primary ms-auto">submit</button>
+
+      <p style="color:red">{{msg}}!</p>
+</form></center>
+
+{% include 'footer.html' %}
+
